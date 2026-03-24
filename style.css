@@ -1,0 +1,137 @@
+/* 1111111111111111
+* {
+  font-size: 25px;
+  margin: 0px;
+  color: #c6c2c2;
+  text-align: center;
+}
+
+header,
+footer {
+  background-color: black;
+  padding: 34px 0px;
+  clear: both;
+}
+
+main {
+  background-color: blueviolet;
+  width: 70%;
+  height: 330px;
+  float: right;
+}
+nav {
+  background-color: red;
+  width: 70%;
+  height: 200px;
+  float: right;
+}
+section {
+  background-color: blue;
+  width: 40%;
+  height: 100px;
+  float: left;
+}
+div {
+  background-color: palevioletred;
+  width: 30%;
+  height: 100px;
+  float: right;
+}
+
+aside {
+  background-color: green;
+  width: 30%;
+  height: 630px;
+  float: left;
+} */
+/* 222222222222 */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #003;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+form {
+  background-color: #0000889f;
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+form input {
+  background-color: #0000889f;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 5px 10px;
+  flex-basis: 200px;
+  flex-grow: 1;
+}
+form button {
+  background-color: #0000889f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex-basis: 60px;
+  flex-grow: 1;
+} */
+
+/* 3333333333 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+form {
+  background-color: beige;
+  padding: 20px;
+}
+form label {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+form input:not([type="radio"]) {
+  width: 100%;
+  padding: 15px;
+
+  outline: none;
+  border-radius: 10px;
+}
+form select {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: greenyellow;
+  transition: 1s;
+}
+form button:hover {
+  background-color: blue;
+  transform: scale(1.1, 1.1);
+}

@@ -91,7 +91,7 @@
 <i class="fa-solid fa-arrow-up" style="position: absolute; left: 1500px; bottom: -70px;"></i></a>  -->
     <!-- 333333333333333333333333333333333333333 -->
     <!-- oninvalid="setCustomValidity('Entrer your fname')" -->
-    <form action="">
+    <form onsubmit="return false;">
       <h1>style an html form with css</h1>
       <label for="">first name</label><br />
       <input
@@ -123,7 +123,7 @@
       <span id="dateError" style="color: red"></span><br />
       <label for="">email</label><br />
       <input
-        id="mail"
+        id="email"
         type="email"
         value="@gmail.com"
         placeholder="............@gmail.com"
@@ -139,32 +139,35 @@
       /><br />
       <span id="passwordError" style="color: red"></span><br />
       <label for="">country</label><br />
-      <select name="" id="">
-        <option value=""></option>
-        <option value="">Tunis</option>
-        <option value="" selected>Sousse</option>
-        <option value="">Sfax</option>
-        <option value="">Bizerte</option>
-        <option value="">Monastir</option>
-        <option value="">Mahdia</option></select
-      ><br /><br />
+      <select id="country">
+        <option value="" disabled selected>choisir votre ville</option>
+        <option value="tunis">Tunis</option>
+        <option value="sousse">Sousse</option>
+        <option value="sfax">Sfax</option>
+        <option value="bizerte">Bizerte</option>
+        <option value="monastir">Monastir</option>
+        <option value="mahdia">Mahdia</option>
+      </select>
+      <span id="countryError" style="color: red; display: block"></span>
+      <br />
       <label for="">Sexe</label><br />
-      <input type="radio" name="Sexe" />Homme
-      <input type="radio" name="Sexe" />Femme <br /><br />
-      <button type="submit" onclick="verif(event)">submit</button>
+      <input type="radio" name="sexe" />Homme
+      <input type="radio" name="sexe" />Femme <br /><br />
+      <span id="sexeError" style="color: red"></span>
+      <button type="submit" onclick="verif()">submit</button>
     </form>
     <script>
-      function verif(event) {
-        event.preventDefault();
+      function verif() {
         var j = 0;
         var fname = document.getElementById("fname").value;
         var lname = document.getElementById("lname").value;
-        var date = document.getElementById("date").value;
         var user = document.getElementById("username").value;
-        var password = document.getElementById("pass").value;
-        var mail = document.getElementById("mail").value;
+        var date = document.getElementById("date").value;
+        var email = document.getElementById("email").value;
         var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var password = document.getElementById("pass").value;
+        var country = document.getElementById("country").value;
+        var sexe = document.querySelector('input[name="sexe"]:checked');
 
         if (!fname) {
           j++;
@@ -186,6 +189,16 @@
           document.getElementById("lname").style.borderColor = "grey";
           document.getElementById("lnameError").textContent = "";
         }
+        if (!user) {
+          j++;
+          document.getElementById("username").style.borderColor = "red";
+          document.getElementById("usernameError").textContent =
+            "veillez entrer votre username";
+          document.getElementById("usernameError").style.fontSize = "20px";
+        } else {
+          document.getElementById("username").style.borderColor = "grey";
+          document.getElementById("usernameError").textContent = "";
+        }
         if (!date) {
           j++;
           document.getElementById("date").style.borderColor = "red";
@@ -196,45 +209,43 @@
           document.getElementById("date").style.borderColor = "grey";
           document.getElementById("dateError").textContent = "";
         }
-        if (!mail.match(mailFormat)) {
+        if (!email.match(mailFormat)) {
           j++;
-          document.getElementById("mail").style.borderColor = "red";
+          document.getElementById("email").style.borderColor = "red";
           document.getElementById("emailError").innerHTML =
             "Veuillez saisir votre mail d'utilisateur";
           document.getElementById("emailError").style.fontSize = "20px";
         } else {
-          document.getElementById("mail").style.borderColor = "grey";
+          document.getElementById("email").style.borderColor = "grey";
           document.getElementById("emailError").textContent = "";
         }
-        if (!user) {
-          j++;
-          document.getElementById("username").style.borderColor = "red";
-          document.getElementById("usernameError").textContent =
-            "veillez entrer votre username";
-          document.getElementById("usernameError").style.fontSize = "20px";
-        } else {
-          document.getElementById("lname").style.borderColor = "grey";
-          document.getElementById("lnameError").textContent = "";
-        }
-        if (!user) {
-          j++;
-          document.getElementById("username").style.borderColor = "red";
-          document.getElementById("usernameError").textContent =
-            "veillez entrer votre username";
-          document.getElementById("usernameError").style.fontSize = "20px";
-        } else {
-          document.getElementById("lname").style.borderColor = "grey";
-          document.getElementById("lnameError").textContent = "";
-        }
+
         if (!password) {
           j++;
           document.getElementById("pass").style.borderColor = "red";
           document.getElementById("passwordError").textContent =
-            "veillez entrer votre username";
+            "veillez entrer votre password";
           document.getElementById("passwordError").style.fontSize = "20px";
         } else {
           document.getElementById("pass").style.borderColor = "grey";
           document.getElementById("passwordError").textContent = "";
+        }
+
+        if (!country) {
+          j++;
+          document.getElementById("country").style.border = "2px solid red";
+          document.getElementById("countryError").textContent =
+            "Veuillez choisir votre pays";
+        } else {
+          document.getElementById("country").style.border = "1px solid grey";
+          document.getElementById("countryError").textContent = "";
+        }
+        if (!sexe) {
+          j++;
+          document.getElementById("sexeError").textContent =
+            "Veuillez choisir votre sexe";
+        } else {
+          document.getElementById("sexeError").textContent = "";
         }
         if (j == 0) {
           alert("Formulaire valide !");
